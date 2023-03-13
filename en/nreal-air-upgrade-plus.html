@@ -1,0 +1,829 @@
+﻿<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+
+<head>
+    <title>Nreal Air - Firmware update</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="apple-touch-icon" sizes="57x57" href="../favori/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../favori/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../favori/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../favori/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../favori/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../favori/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../favori/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../favori/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favori/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../favori/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favori/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../favori/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favori/favicon-16x16.png">
+    <link rel="manifest" href="../favori/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../ms-icon-144x144.png">
+
+    <style>
+        body {
+            font-family: 'Poppins', "SF Pro JP", Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .btnStandard {
+            width: auto;
+            min-width: 160px;
+            height: 40px;
+            border-radius: 20px;
+            border: 3px solid black;
+            background-color: black;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: 0.2s;
+        }
+
+        .btnStandard:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .tipStyle {
+            border: 3px solid black;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 360px;
+        }
+
+        .guideStyle {
+            padding: 20px;
+            margin: 20px auto;
+            text-align: center;
+            align-items: center;
+        }
+
+        .alertStyle {
+            background-color: rgb(255, 231, 74);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 300px;
+            height: auto;
+            font-weight: normal;
+        }
+
+        .okStyle {
+            background-color: rgb(0, 245, 0);
+            color: black;
+            font-weight: bold;
+            margin: 10px auto;
+            width: auto;
+            min-width: 200px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        .failStyle {
+            background-color: rgb(255, 231, 74);
+            color: black;
+            font-weight: bold;
+            margin: 10px auto;
+            width: auto;
+            min-width: 200px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        .areaStyle {
+            width: 260px;
+            height: 30px;
+            user-select: none;
+            margin: 10px auto;
+            border: none;
+            overflow: auto;
+            outline: none;
+            box-shadow: none;
+            resize: none;
+            background-color: rgba(0, 0, 0, 0);
+            text-align: center;
+        }
+
+        .panel {
+            text-align: center;
+            margin: 0 auto;
+            width: calc(100% - 60px);
+            max-width: 650px;
+            background-color: rgb(241, 245, 247);
+            padding: 20px;
+            margin-top: 20px;
+            font-weight: normal;
+        }
+
+        .box {
+            text-align: center;
+            margin: 0 auto;
+            width: calc(100% - 60px);
+            max-width: 500px;
+            background-color: rgb(241, 245, 247);
+            padding: 20px;
+            margin-top: 20px;
+            font-weight: normal;
+        }
+
+        h1 {
+            font-size: 34px;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 26px;
+        }
+
+        p {
+            font-size: 15px;
+        }
+
+        .line {
+            width: 100%;
+            height: 2px;
+            border-bottom: 1px solid rgb(209, 209, 209);
+        }
+
+        .spaceM {
+            width: 100%;
+            height: 30px;
+        }
+
+        .spaceL {
+            width: 100%;
+            height: 80px;
+        }
+
+        .spaceXL {
+            width: 100%;
+            height: 100px;
+        }
+
+        .r3 {
+            border-radius: 3px;
+        }
+
+        .r6 {
+            border-radius: 6px;
+        }
+
+        .r20 {
+            border-radius: 20px;
+        }
+
+        .r25 {
+            border-radius: 25px;
+        }
+
+        .r30 {
+            border-radius: 30px;
+        }
+
+        .shdwS {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .shdwS:hover {
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .progressNumber {
+            font-size: 36px;
+            font-weight: 700;
+            padding: 12px 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            .video {
+                width: 280px;
+                height: 150px;
+            }
+        }
+
+        .topImage {
+            padding: 36px;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="../css/Poppins.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body {
+            font-family: 'Poppins';
+        }
+    </style>
+    <script type="module" src="../js_air/manager.js"></script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async="" src="../gtag/js?id=G-93DMZBDWJK"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-93DMZBDWJK');
+</script>
+
+<body>
+    <!-- <script>
+            if ("serial" in navigator) {
+                alert("Your browser supports Web Serial API!");
+            }else {
+                alert("Your browser does not support Web Serial API, the latest version of Google Chrome is recommended!");
+            }
+    </script> -->
+    <div style="text-align: center;">
+        <img src="../images/logo_Nreal.png" width="150px" height="36px" style="margin: 40px auto;">
+    </div>
+
+
+    <div style="text-align: center; margin: 0 auto; width: calc(100% - 20px); max-width: 600px;">
+
+        <h1>
+            Operating Instructions
+        </h1>
+    </div>
+
+    <div class="panel r20">
+        <img src="../images/air.png" alt="Nreal Air" style="margin: 16px 0 21px" width="128px" height="60px">
+        <p>
+            This page is used for update of the <span style="font-weight: bold; font-size: 18px;"> Nreal
+                Air. </span><br><br>
+            Please follow the step-by-step instructions. <br><br>
+            Connect the glasses to your computer. Your computer screen might flash.
+            <br><br>
+            If you experience any issues during the update, try disconnecting the glasses and refreshing the page to
+            start over. <br><br>
+            If you need more support, you can communicate with customer service in the lower right corner of the
+            official website homepage, or go to the user community for more information: <a href="https://www.reddit.com/r/nreal" target="_blank">https://www.reddit.com/r/nreal</a>.
+        </p>
+    </div>
+    <div class="spaceL"></div>
+
+    <div style="text-align: center; margin: 0 auto; width: calc(100% - 20px); max-width: 600px;">
+
+        <h1>
+            Notes
+        </h1>
+    </div>
+
+    <div class="panel r20" style="background-color: rgb(255, 235, 103);">
+        <p>
+        <p id="noSupportHid" style="display: none; color: red; font-size: 30px">There seems to be a compatibility issue
+            with your browser.</p>
+        <span style="font-size: 30px">
+            Please make sure your browser is<span style="font-weight: bold"> Google Chrome (version 89 or later)</span>
+            or <span style="font-weight: bold">Edge (version 89 or later).</span>
+        </span>
+        
+    </div>
+    <div class="panel r20" style="background-color: rgb(255, 235, 103);">
+        <p>
+            <span style="font-size: 30px">
+                Please make sure that only one pair of Nreal glasses are connected to your laptop during the update. Do
+                not connect multiple glasses, or Nreal glasses and Nreal Adapter at the same time.
+            </span>
+        </p>
+    </div>
+    <!-- <div class="guideStyle">
+        <video src="../images/guide_en.mp4" width="600px" height="380px" muted="muted" loop style="margin: 0 auto;font-size: 0;" class="video" controls poster="../images/poster.jpg">
+    </div> -->
+    <div class="spaceL"></div>
+
+    <div style="text-align: center; margin: 0 auto; width: calc(100% - 20px); max-width: 600px;">
+
+        <h1>
+            Update
+        </h1>
+    </div>
+
+    <div class="box r20">
+        <h2>1. Download the firmware</h2>
+        <p>This file is for updating your glasses. Please don't rename the file. You don't need to open it. <br><br></p>
+        <button class="btnStandard en_activation_air_download_file_plus" id="downloadFile" style="width: 240px;">Download the firmware</button>
+        <div class="spaceM"></div>
+    </div>
+
+    <div class="box r20">
+        <h2>2. Connect the glasses to your laptop using the USB-C cable and click on "Connect"</h2>
+        <p>For all pop-up windows,<br>please select "Nreal Air" from the device list and click on "Connect".<br><br></p>
+        <button id='connect' class="btnStandard en_air_activation_connect_plus">Connect</button>
+        <span class="okStyle" style="display: none;" id="hadConnect">Connected</span>
+        <span id="firmwareMcu"></span>
+        <div class="spaceM"></div>
+    </div>
+
+    <!-- <div class="box r20">
+        <h2>3. Activate the glasses</h2>
+        <p>Whether your glasses are activated or not, click the button below and ensure that the glasses are activated
+            before firmware update.<br><br></p>
+        <button id='activate' class="btnStandard en_air_activation_active_plus">Activate</button>
+        <span class="okStyle" style="display: none;" id="activeted">Activated</span>
+        <div class="spaceM"></div>
+    </div> -->
+
+    <div class="box r20">
+        <h2>3. Select the downloaded firmware file</h2>
+        <p>Please make sure to select the firmware downloaded in Step 1, and click on "Open".<br><br></p>
+        <div class="alertStyle">
+            <div style="color: red">During the update, please keep the current page open and avoid disconnecting your
+                glasses.</div>
+            <span style="color: red">Please be sure to update the MCU firmware before updating the DP firmware,
+            </span>and that both updates are completed. Otherwise, the glasses might not function properly.
+            <br>
+            During the update, your laptop screen might flash or black out. Please wait.
+            <br>
+        </div>
+        <!-- <button id="upload">点击下载固件</button> -->
+        <textarea id="binfile" class="areaStyle" cols="100" rows="1" disabled="" style="text-align: center;"></textarea><br>
+        <button id="selectbin" class="btnStandard en_activation_air_select_firmware_plus" style="width: 220px;">Select
+            the firmware file</button><br>
+        <div class="spaceM"></div>
+    </div>
+
+    <div class="box r20">
+        <h2>4. MCU firmware update</h2>
+        <div class="alertStyle">
+            Please select the firmware file in Step 3 before updating.
+            <br>
+            For all pop-up windows, please select your glasses from the device list and click on "Connect".
+            <br>
+            Your laptop screen might flash or black out. Please wait.
+        </div>
+        <br>
+
+        <button id='upgradeMcu' class="btnStandard en_activation_air_firmware_update_mcu_plus" style="width: 200px;">MCU
+            Firmware Update</button>
+        <div id="progress" class="progressNumber" style="display: none;">0%</div>
+        <!-- <div id="tip" class="tipStyle" style="display: none">
+            当你的眼镜固件均升级成功后，请前往升级你的 Nreal 适配器。
+            <br />
+            如果你已完成 Nreal 适配器的升级，请忽略。
+        </div> -->
+
+        <div id="alreadyLast" style="display: none;" class="okStyle"></div>
+        <div id="outputMcu" style="display: none">
+            <div class="okStyle">
+                MCU firmware update is completed. Please proceed to update the DP firmware.
+            </div>
+        </div>
+        <div id="latestVersionMcu" class="okStyle" style="display: none"></div>
+
+        <div id="fail" class="failStyle" style="display: none">There was a problem during the update. Please refresh the
+            page and start over from Step 2.</div>
+        <div class="spaceM"></div>
+    </div>
+    <div class="box r20">
+        <h2>5. DP firmware update</h2>
+        <div class="alertStyle">
+            Please choose the file in Step 3 before updating.
+            <br>
+            For all pop-up windows, please select "Nreal Air" from the device list and click on "Connect".
+        </div>
+        <button id='upgradeDp' class="btnStandard en_activation_air_firmware_update_dp_plus" style="width: 200px;">DP
+            Firmware Update</button>
+        <div id="tipdp" class="tipStyle">
+            Once you have updated your Nreal Air, please proceed to update your <a href="nreal-adapter-upgrade.html" target="_blank">Nreal Adapter</a> to the latest firmware.
+            <!-- "adapter_11.1.08.001_20221012.bin". -->
+            <br>
+            <span style="color: red">Once your glasses have updated, please proceed to update your Nreal Adapter.
+            </span>
+            <br>
+            Please ignore this message if you have already updated your Nreal Adapter.
+        </div>
+        <div id="progressDp" class="progressNumber" style="display: none;">0%</div>
+        <div id="alreadyLastDp" style="display: none;" class="okStyle"></div>
+        <div id="outputdp" style="display: none">
+            <div class="okStyle">
+                DP firmware update is completed.
+            </div>
+        </div>
+        <div id="latestVersionDp" class="okStyle" style="display: none"></div>
+
+        <div id="faildp" class="failStyle" style="display: none">There was a problem during the update. Please refresh
+            the page, reconnect the glasses, and repeat Step 5.</div>
+        <div class="spaceM"></div>
+    </div>
+
+    <script type="module">
+
+        // if(!header){
+        //     window.location.href = 'https://www-uat.nreal.cn/support/activationGlasses/'
+        // }
+
+        import * as Manager from '../js_air/manager.js';
+        import * as Common from '../common.js';
+        import * as GA from '../addGa.js';
+        import http from "../tools/http.js"
+        import downloadfiles from "../tools/downloadfile.js"
+
+        const hidFilters = [
+            { 'vendorId': 0x3318 },
+        ];
+
+        let binFile = null;
+        let currentGlass = null;
+
+        async function upgradeMcu() {
+            if (binFile == null) {
+                alert('Please select the firmware file or redownload it. ')
+                return;
+            }
+            let version = await Manager.getFirmwareVersionInMcu();
+            if (version == null) {
+                alert("The device is not connected, please connect the glasses");
+                return;
+            }
+            let result;
+            http.get({ url: `/nebula/v1/isc/admin/device/version/check?deviceType=2&country=2&fileType=10&currentFileName=air_${version}.bin`, timeout: 1000 }, async function (err, res) {
+                if (err) {
+                    alert('Error. Please refresh and try again.')
+                    return false;
+                } else {
+                    if (res.data.isLatest) {
+                        document.getElementById('alreadyLast').innerText = "Your MCU firmware is the latest. There's no update available."
+                        document.getElementById('alreadyLast').style.display = 'block'
+                        GA.addGa(
+                            'actiAirP_update_mcu_not_required',
+                            {
+                                lang: 'en'
+                            }
+                        );
+                        return;
+                    } else {
+                        GA.addGa(
+                            'actiAirP_update_mcu_required',
+                            {
+                                lang: 'en'
+                            }
+                        );
+                        document.getElementById('upgradeDp').disabled = true;
+                        let data = await binFile.arrayBuffer();
+                        // document.getElementById('tip').style.display = 'block'
+                        document.getElementById('upgradeMcu').style.display = 'none'
+                        document.getElementById('progress').style.display = 'block'
+                        result = await Manager.upgradeInMcu(await binFile.arrayBuffer());
+                        if (result) {
+                            // document.getElementById('tip').style.display = 'none'
+                            document.getElementById('outputMcu').style.display = 'block'
+                            let mcuTimer = setInterval(async () => {
+                                if (Common.curGlasses) {
+                                    Manager.getFirmwareVersionInMcu().then(lastVersion => {
+                                        document.getElementById('latestVersionMcu').style.display = 'block';
+                                        document.getElementById('latestVersionMcu').innerText = lastVersion ? `Current MCU firmware version is: ${lastVersion}` : ''
+                                    })
+                                        .catch(err => {
+                                            console.log('err', err)
+                                        })
+                                        .finally(() => {
+                                            clearInterval(mcuTimer);
+                                            mcuTimer = null;
+                                        })
+                                }
+                            }, 300);
+                            GA.addGa(
+                                'actiAirP_update_mcu_success',
+                                {
+                                    lang: 'en'
+                                }
+                            );
+                        } else {
+                            document.getElementById('fail').style.display = 'block'
+                            GA.addGa(
+                                'actiAirP_update_mcu_fail',
+                                {
+                                    lang: 'en'
+                                }
+                            );
+
+                        }
+                        document.getElementById('upgradeDp').disabled = false;
+                    }
+                }
+            });
+        }
+
+        async function upgradeInDp() {
+            if (binFile == null) {
+                alert('Please select the firmware file or redownload it. ')
+                return;
+            }
+            document.getElementById('alreadyLastDp').style.display = 'none'
+            document.getElementById('outputdp').style.display = 'none'
+            let dpVersion = await Manager.isNeedUpgradeInDp();
+            // console.log('dpVersion', dpVersion)
+            if (dpVersion == null) {
+                alert("The device is not connected, please connect the glasses");
+                return;
+            }
+            if (!dpVersion) {
+                document.getElementById('alreadyLastDp').innerText = "Your DP firmware is the latest. There's no update available."
+                document.getElementById('alreadyLastDp').style.display = 'block'
+                GA.addGa(
+                    'actiAirP_update_dp_not_required',
+                    {
+                        lang: 'en'
+                    }
+                );
+                return;
+            }
+            GA.addGa(
+                'actiAirP_update_dp_required',
+                {
+                    lang: 'en'
+                }
+            );
+            document.getElementById('tipdp').style.display = 'block'
+            document.getElementById('upgradeDp').style.display = 'none'
+            document.getElementById('progressDp').style.display = 'block'
+            let result;
+            result = await Manager.upgradeInDp();
+            if (result) {
+                document.getElementById('outputdp').style.display = 'block'
+                let dpTimer = setInterval(async () => {
+                    if (Common.curGlasses) {
+                        Manager.getFirmwareVersionInDp()
+                            .then(lastVersion => {
+                                document.getElementById('latestVersionDp').style.display = 'block';
+                                document.getElementById('latestVersionDp').innerText = lastVersion ? `Current DP firmware version is: ${lastVersion}` : '';
+                            })
+                            .catch(err => { console.log(err) })
+                            .finally(() => {
+                                clearInterval(dpTimer)
+                                dpTimer = null
+                            })
+                    }
+                }, 300);
+
+                GA.addGa(
+                    'actiAirP_update_dp_success',
+                    {
+                        lang: 'en'
+                    }
+                );
+            } else {
+                document.getElementById('progressDp').style.display = 'none';
+                document.getElementById('faildp').style.display = 'block'
+                GA.addGa(
+                    'actiAirP_update_dp_fail',
+                    {
+                        lang: 'en'
+                    }
+                );
+            }
+        }
+
+        async function upgradeDsp() {
+            if (binFile == null) {
+                alert('Please select the firmware file or redownload it. ')
+                return;
+            }
+
+            // 拿到文件的版本号            
+            let version = binFile.name.slice(4, 9)
+            let flag = await Manager.isNeedUpgradeInDsp(version);
+            if (flag == null) {
+                alert("Please connect glasses first!");
+                return;
+            }
+            if (flag != 1) {
+                alert("Already the latest version!");
+                return
+            }
+
+            let data = await binFile.arrayBuffer();
+
+            let result = await Manager.upgradeInDsp(await binFile.arrayBuffer());
+            // let timer = setInterval(() => {
+            //     setOutput((Manager.current/Manager.total) * 100 + '%')
+            //     if(Manager.current == Manager.total){
+            //         clearInterval(timer)
+            //         setOutput(result)
+            //     }
+            // })
+
+            // setOutput((Manager.current/Manager.total) * 100 + '%')
+        }
+
+        function downloadFile() {
+            http.get({ url: `/nebula/v1/isc/admin/device/version/check?deviceType=2&country=2&fileType=10&currentFileName=isLatest`, timeout: 1000 }, function (err, result) {
+                if (err) {
+                    alert("download failed")
+                    GA.addGa(
+                        'actiAirP_download_file_fail',
+                        {
+                            lang: 'en'
+                        }
+                    );
+                } else {
+                    const url = result.data.uri
+                    downloadfiles(url)
+                    GA.addGa(
+                        'actiAirP_download_file_success',
+                        {
+                            lang: 'en'
+                        }
+                    );
+                }
+            });
+        }
+
+        async function isLastest(ver) {
+            http.get({ url: `/nebula/v1/isc/admin/device/version/check?deviceType=2&country=2&fileType=10&currentFileName=air_${ver}`, timeout: 1000 }, function (err, result) {
+                if (err) {
+                    return false;
+                } else {
+                    return result.data.isLatest
+                }
+            });
+        }
+
+        // 获取文件名
+        // function fileNameFromHeader (disposition) {
+        //     let result = null;
+        //     if (disposition && /filename=.*/ig.test(disposition)) {
+        //         result = disposition.match(/filename=.*/ig);
+        //         return decodeURI(result[0].split('=')[1]);
+        //     }
+        //     return null;
+        // }
+
+        function selectbin() {
+            return Manager.selectBinFile().then(file => {
+                var reg = /07.[1-2].[0-9]{2}.[0-9]{3}_[0-9]{8}/g;
+                if (reg.test(file.name)) {
+                    binFile = file;
+                    document.getElementById('binfile').value = file.name;
+                    GA.addGa(
+                        'actiAirP_select_file_success',
+                        {
+                            lang: 'en',
+                            filename: file.name,
+                        }
+                    )
+                } else {
+                    document.getElementById('binfile').value = " "
+                    window.alert("Please select the firmware file or redownload it. ")
+                    binFile = null
+                    GA.addGa(
+                        'actiAirP_select_file_fail',
+                        {
+                            lang: 'en',
+                            filename: file.name,
+                        }
+                    )
+                }
+                return binFile;
+            });
+        }
+
+        function connect() {
+            Common.connectDevice().then(async glasses => {
+                if (glasses) {
+                    document.getElementById('hadConnect').style.display = 'block'
+                    document.getElementById('connect').style.opacity = '0'
+                    document.getElementById('firmwareMcu').innerText = 'Current glasses version is : ' + await firmwareMcu()
+                    // document.getElementById('sn').innerText = '设备SN号为：' + await getSN()
+                    GA.addGa(
+                        'actiAirP_connect_success',
+                        {
+                            lang: 'en'
+                        }
+                    );
+                } else {
+                    GA.addGa(
+                        'actiAirP_connect_fail',
+                        {
+                            lang: 'en'
+                        }
+                    );
+                }
+                // document.getElementById('sn').innerHTML = getSN()
+                // document.getElementById('version').innerText = '版本号' + firmwareMcu()
+                // setOutput('glasses : ' + glasses.toString());
+            });
+        }
+
+        function firmwareMcu() {
+            return Manager.getFirmwareVersionInMcu().then(version => {
+                // setOutput('firmware : ' + version);
+                return version
+            })
+        }
+
+        function getSN() {
+            return Manager.getSN().then(version => {
+                // setOutput('SN : ' + version);
+                return version
+            });
+        }
+
+        function JumpToApp() {
+            Manager.boot2App().then(result => {
+                setOutput('jump to app : ' + result);
+            });
+        }
+
+        function serial() {
+            Manager.getSerialPort().then(version => {
+                setOutput('serial port: ' + version.serialNumber);
+            });
+        }
+
+        function deactivate() {
+            Manager.deactivate().then(result => {
+                setOutput('deactivate ' + result);
+            });
+        }
+
+        // function activate() {
+        //     let nowTime = new Date().getTime()
+        //     Manager.activate(nowTime).then(async result => {
+        //         if (result) {
+        //             let sn = await getSN()
+        //             const data = {
+        //                 sn,
+        //                 timestamp: nowTime,
+        //                 deviceType: 'Air_OTA'
+        //             }
+        //             GA.addGa(
+        //                 'actiAirP_activate_success',
+        //                 {
+        //                     lang: 'en'
+        //                 }
+        //             );
+        //             document.getElementById('activeted').style.display = 'block'
+        //             document.getElementById('activate').style.opacity = '0'
+        //         } else {
+        //             GA.addGa(
+        //                 'actiAirP_activate_fail',
+        //                 {
+        //                     lang: 'en'
+        //                 }
+        //             );
+        //         }
+        //     });
+        // }
+
+        //上传测井数据表到服务器数据库 
+        function PostToServer(data) {
+            var httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
+            httpRequest.open("POST", "https://app-uat-api-cn.nreal.work/api/user-profile/v1/rest/device-activation/activate", true);  //调用AddDataToServer
+            httpRequest.setRequestHeader("Content-Type", "application/json");   //设置请求头信息
+            // httpRequest.setRequestHeader("Authorization", header);   //设置请求头信息
+            httpRequest.setRequestHeader("Authorization", header);   //设置请求头信息
+            httpRequest.send(JSON.stringify(data)); //设置为发送给服务器数据
+        }
+
+        function setOutput(output) {
+            document.getElementById('output').innerText = output;
+        }
+
+
+        window.onload = async () => {
+            if (!Manager?.hidSupported()) {
+                document.getElementById('noSupportHid').style.display = "block";
+                GA.addGa(
+                    'actiAirP_browser_wrong',
+                    {
+                        lang: 'en'
+                    }
+                );
+                return;
+            }
+            Common.addHidListener();
+            GA.addGa(
+                'actiAirP_browser_correct',
+                {
+                    lang: 'en'
+                }
+            );
+            // Manager.checkConnection();
+            // Manager.addHidListener();
+            // Manager.addSerialListener();
+            document.getElementById('connect').onclick = connect;
+            // document.getElementById('activate').onclick = activate;
+            document.getElementById('downloadFile').onclick = downloadFile;
+            // document.getElementById('deactivate').onclick = deactivate;
+            // document.getElementById('firmwareMcu').onclick = firmwareMcu;
+            // document.getElementById('SN').onclick = getSN;
+            // document.getElementById('app').onclick = JumpToApp;
+            // document.getElementById('serial').onclick = serial;
+            // document.getElementById('upload').onclick = upload;
+            document.getElementById('selectbin').onclick = selectbin;
+            document.getElementById('upgradeMcu').onclick = upgradeMcu;
+            document.getElementById('upgradeDp').onclick = upgradeInDp;
+            // document.getElementById('upgradeDsp').onclick = upgradeDsp;
+        }
+    </script>
+    <script src="../point.js"></script>
+
+</body>
+
+</html>
