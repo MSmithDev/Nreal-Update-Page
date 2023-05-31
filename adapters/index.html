@@ -1,0 +1,435 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+
+<head>
+    <title>Air Connection Test / Adapters</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="ms-icon-144x144.png">
+    
+    <style>
+        body {
+            font-family: 'Poppins', "SF Pro JP", Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        
+        .firmwareContainer button{
+            display: block;
+            margin: 0 auto;
+            margin-top: 10px;
+        }
+        .btnStandard {
+            width: auto;
+            min-width: 160px;
+            height: 40px;
+            border-radius: 20px;
+            border: 3px solid black;
+            background-color: black;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: 0.2s;
+        }
+
+        .btnStandard:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .tipStyle {
+            border: 3px solid black;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 360px;
+        }
+
+        .guideStyle {
+            padding: 20px;
+            margin: 20px auto;
+            text-align: center;
+            align-items: center;
+        }
+
+        .alertStyle {
+            background-color: rgb(255, 231, 74);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 300px;
+            height: auto;
+            font-weight: normal;
+        }
+
+        .okStyle {
+            background-color: rgb(0, 245, 0);
+            color: black;
+            font-weight: bold;
+            margin: 10px auto;
+            width: auto;
+            min-width: 200px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        .failStyle {
+            background-color: rgb(255, 231, 74);
+            color: black;
+            font-weight: bold;
+            margin: 10px auto;
+            width: auto;
+            min-width: 200px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        .areaStyle {
+            width: 260px;
+            height: 30px;
+            user-select: none;
+            margin: 10px auto;
+            border: none;
+            overflow: auto;
+            outline: none;
+            box-shadow: none;
+            resize: none;
+            background-color: rgba(0, 0, 0, 0);
+            text-align: center;
+        }
+
+        .panel {
+            text-align: center;
+            margin: 0 auto;
+            width: calc(100% - 60px);
+            max-width: 850px;
+            background-color: rgb(241, 245, 247);
+            padding: 20px;
+            margin-top: 20px;
+            font-weight: normal;
+        }
+
+        .box {
+            text-align: center;
+            margin: 0 auto;
+            width: calc(100% - 60px);
+            max-width: 600px;
+            background-color: rgb(241, 245, 247);
+            padding: 20px;
+            margin-top: 20px;
+            font-weight: normal;
+        }
+
+        h1 {
+            font-size: 34px;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 26px;
+        }
+
+        p {
+            font-size: 15px;
+        }
+
+        .line {
+            width: 100%;
+            height: 2px;
+            border-bottom: 1px solid rgb(209, 209, 209);
+        }
+
+        .spaceM {
+            width: 100%;
+            height: 30px;
+        }
+
+        .spaceL {
+            width: 100%;
+            height: 80px;
+        }
+
+        .spaceXL {
+            width: 100%;
+            height: 100px;
+        }
+
+        .r3 {
+            border-radius: 3px;
+        }
+
+        .r6 {
+            border-radius: 6px;
+        }
+
+        .r20 {
+            border-radius: 20px;
+        }
+
+        .r25 {
+            border-radius: 25px;
+        }
+
+        .r30 {
+            border-radius: 30px;
+        }
+
+        .shdwS {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .shdwS:hover {
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .progressNumber {
+            font-size: 36px;
+            font-weight: 700;
+            padding: 12px 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            .video {
+                width: 280px;
+                height: 150px;
+            }
+        }
+
+        .topImage {
+            padding: 36px;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="../css/Poppins.css">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        body {
+            font-family: 'Poppins';
+        }
+    </style>
+    <script type="module" src="../js_air/manager.js"></script>
+</head>
+<body>
+    <!-- <script>
+            if ("serial" in navigator) {
+                alert("Your browser supports Web Serial API!");
+            }else {
+                alert("Your browser does not support Web Serial API, the latest version of Google Chrome is recommended!");
+            }
+    </script> -->
+    <div style="text-align: center; font-size: 50px; font-weight: bold;">
+        Community Air Adapter Test
+    </div>
+
+
+    <div style="text-align: center; margin: 0 auto; width: calc(100% - 20px); max-width: 600px;">
+
+    </div>
+
+    <div class="panel r20">
+        <img src="../images/air.png" alt="Nreal Air" style="margin: 16px 0 21px" width="128px" height="60px">
+        <p>
+            This page is for checking the usb connecton to <span style="font-weight: bold; font-size: 18px;"> Nreal
+                Air. </span><br>Below you will also find a list of tested USB-C adapters and their tested functionality with the glasses. This is a community compiled list.<br>
+                    </p>
+    </div>
+    <!--<div class="spaceL"></div>-->
+
+    <div style="text-align: center; margin: 0 auto; width: calc(100% - 20px); max-width: 600px;">
+    </div>
+       
+        
+    </div>
+    
+    <!--<div class="spaceL"></div>-->
+
+    <div style="text-align: center; margin: 0 auto; width: calc(100% - 20px); max-width: 600px;">
+    </div>
+
+    <script>
+        var showHashbox = false;
+        function toggleHashBox() {
+            var container = document.getElementById("hashBox");
+            showHashbox = !showHashbox;
+            if (showHashbox == true) {
+                container.style.display = "block";
+            } else {
+                container.style.display = "none";
+            }
+            
+        }
+    </script>
+  
+      
+
+    <div class="box r20">
+        <h2>Test Connection</h2>
+        <p>Press connect to attept a connection to the glasses, if you do not see a device in the list, then something may be wrong, check your cable and try refreshing.</p>
+        <button id='connect' class="btnStandard en_air_activation_connect_plus">Connect</button>
+        <span class="okStyle" style="display: none;" id="hadConnect">Connected</span>
+        <span id="firmwareMcu"></span>
+        <br>
+        <span id="sn"></span>
+        <div class="spaceM"></div>
+    </div>
+
+<div class="box r20">
+        <h2>Tested Adapters</h2>
+        <p>Below is a list of adapters submitted by community members. If you would like to add an adapter please submit it using this <a href="https://forms.gle/BAstTxbPExqZdk1H9">form</a>. You can get the full details on this <a href="https://docs.google.com/spreadsheets/d/15ub-YF9NU5KQ4r3UsiJlasdu6mH9fk_Xd-C37OcWQgc/edit?usp=sharing">sheet</a> Note: The list will take time to update after submiting.</p>
+                     
+	<iframe width="740" height="400" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQmHq_CgdcK7_uovWxWE8EuWrhkAW0B6XsITLnNw3VeQ24KD5yXhOOOsvxUx1sngxfsotYaXRf38hOp/pubhtml?gid=1136029629&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+        
+        <div class="spaceM"></div>
+    </div>
+
+
+
+    <script type="module">
+
+        // if(!header){
+        //     window.location.href = 'https://www-uat.nreal.cn/support/activationGlasses/'
+        // }
+
+        import * as Manager from '../js_air/manager.js';
+        import * as Common from '../common.js';
+        import http from "../tools/http.js"
+        import downloadfiles from "../tools/downloadfile.js"
+
+        const hidFilters = [
+            { 'vendorId': 0x3318 },
+        ];
+
+        let binFile = null;
+        let currentGlass = null;
+
+       
+
+ 
+        function connect() {
+            Common.connectDevice().then(async glasses => {
+                if (glasses) {
+                    document.getElementById('hadConnect').style.display = 'block'
+                    document.getElementById('connect').style.opacity = '0'
+                    document.getElementById('firmwareMcu').innerText = 'Current firmware: ' + await firmwareMcu()
+                    //document.getElementById('sn').innerText = 'Serial Number: ' + await getSN()
+
+                } else {
+
+                }
+                // document.getElementById('sn').innerHTML = getSN()
+                // document.getElementById('version').innerText = '版本号' + firmwareMcu()
+                // setOutput('glasses : ' + glasses.toString());
+            });
+        }
+
+        function firmwareMcu() {
+            return Manager.getFirmwareVersionInMcu().then(version => {
+                // setOutput('firmware : ' + version);
+                return version
+            })
+        }
+
+        function getSN() {
+            return Manager.getSN().then(version => {
+                // setOutput('SN : ' + version);
+                return version
+            });
+        }
+
+        function JumpToApp() {
+            Manager.boot2App().then(result => {
+                setOutput('jump to app : ' + result);
+            });
+        }
+
+        function serial() {
+            Manager.getSerialPort().then(version => {
+                setOutput('serial port: ' + version.serialNumber);
+            });
+        }
+
+        function deactivate() {
+            Manager.deactivate().then(result => {
+                setOutput('deactivate ' + result);
+            });
+        }
+
+        // function activate() {
+        //     let nowTime = new Date().getTime()
+        //     Manager.activate(nowTime).then(async result => {
+        //         if (result) {
+        //             let sn = await getSN()
+        //             const data = {
+        //                 sn,
+        //                 timestamp: nowTime,
+        //                 deviceType: 'Air_OTA'
+        //             }
+        //             GA.addGa(
+        //                 'actiAirP_activate_success',
+        //                 {
+        //                     lang: 'en'
+        //                 }
+        //             );
+        //             document.getElementById('activeted').style.display = 'block'
+        //             document.getElementById('activate').style.opacity = '0'
+        //         } else {
+        //             GA.addGa(
+        //                 'actiAirP_activate_fail',
+        //                 {
+        //                     lang: 'en'
+        //                 }
+        //             );
+        //         }
+        //     });
+        // }
+
+        //上传测井数据表到服务器数据库 
+        function PostToServer(data) {
+            
+            // var httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
+            // httpRequest.open("POST", "https://app-uat-api-cn.nreal.work/api/user-profile/v1/rest/device-activation/activate", true);  //调用AddDataToServer
+            // httpRequest.setRequestHeader("Content-Type", "application/json");   //设置请求头信息
+            // // httpRequest.setRequestHeader("Authorization", header);   //设置请求头信息
+            // httpRequest.setRequestHeader("Authorization", header);   //设置请求头信息
+            // httpRequest.send(JSON.stringify(data)); //设置为发送给服务器数据
+            console.log("Nreal tried to send this home:");
+            console.log(data);
+        }
+
+        function setOutput(output) {
+            document.getElementById('output').innerText = output;
+        }
+
+
+        window.onload = async () => {
+            if (!Manager?.hidSupported()) {
+                document.getElementById('noSupportHid').style.display = "block";
+                return;
+            }
+            Common.addHidListener();
+            // Manager.checkConnection();
+            // Manager.addHidListener();
+            // Manager.addSerialListener();
+            document.getElementById('connect').onclick = connect;
+            // document.getElementById('activate').onclick = activate;
+            document.getElementById('downloadFile').onclick = downloadFile;
+            // document.getElementById('deactivate').onclick = deactivate;
+            // document.getElementById('firmwareMcu').onclick = firmwareMcu;
+            // document.getElementById('SN').onclick = getSN;
+            // document.getElementById('app').onclick = JumpToApp;
+            // document.getElementById('serial').onclick = serial;
+            // document.getElementById('upload').onclick = upload;
+            document.getElementById('selectbin').onclick = selectbin;
+            document.getElementById('upgradeMcu').onclick = upgradeMcu;
+            document.getElementById('upgradeDp').onclick = upgradeInDp;
+            // document.getElementById('upgradeDsp').onclick = upgradeDsp;
+        }
+    </script>
+  
+
+</body>
+
+</html>
